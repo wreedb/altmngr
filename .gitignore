@@ -1,0 +1,8 @@
+.tags
+altmngr
+*.o
+po/*.mo
+.vscode/
+build/**
+a.out
+altmngr.8
