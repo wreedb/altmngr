@@ -22,9 +22,9 @@
 #define _(foo) gettext(foo)
 
 struct linkSet {
-    char *title;    /* text-pager     */
-    char *facility; /* /usr/bin/pager */
-    char *target;   /* /usr/bin/less  */
+    char *title;    // pager
+    char *facility; // /usr/bin/pager
+    char *target;   // /usr/bin/less
 };
 
 struct alternative {
@@ -62,29 +62,19 @@ enum programModes {
 };
 
 static int usage(int rc) {
-    printf(_("altmngr version %s - Copyright (C) Will Reed <wreed@disroot.org>\n"),
-           ALTMNGR_VERSION);
-    printf(_("This may be freely redistributed under the terms of the GNU "
-             "Public License.\n\n"));
-    printf(
-        _("usage: altmngr --install <link> <name> <path> <priority>\n"));
-    printf(_("                    [--initscript <service>]\n"));
-    printf(_("                    [--family <family>]\n"));
-    printf(_("                    [--follower <follower_link> <follower_name> <follower_path>]*\n"));
-    printf(_("       altmngr --remove <name> <path>\n"));
-    printf(_("       altmngr --auto <name>\n"));
-    printf(_("       altmngr --config <name>\n"));
-    printf(_("       altmngr --display <name>\n"));
-    printf(_("       altmngr --set <name> <path/family>\n"));
-    printf(_("       altmngr --list\n"));
-    printf(_("       altmngr --remove-all <name>\n"));
-    printf(_("       altmngr --add-follower <name> <path> <follower_link> <follower_name> <follower_path>\n"));
-    printf(_("       altmngr --remove-follower <name> <path> <follower_name>\n"));
+    printf(_("altmngr (version %s) <\e[33mwreed@disroot.org\e[0m>\n\n"), ALTMNGR_VERSION);
+    printf(_("Usage: altmngr \e[1mACTION\e[0m [ARGUMENTS]...\n"));
+    printf(_("  --create <link> <name> <dest> <priority>\n"));
+    printf(_("  --rm <name> <dest>\n"));
+    printf(_("  --config <name>\n"));
+    printf(_("  --display <name>\n"));
+    printf(_("  --auto <name>\n"));
+    printf(_("  --list\n"));
+    printf(_("  --rm-all <name>\n"));
+    printf(_("  --add-branch <name> <dest> <branch-link> <branch-name> <branch-dest>\n"));
+    printf(_("  --rm-branch <name> <dest> <branch-name>\n"));
     printf(_("\n"));
-    printf(_("common options: --verbose --test --help --usage --version "
-             "--keep-missing --keep-foreign\n"));
-    printf(_("                --altdir <directory> --admindir <directory>\n"));
-
+    printf(_("See manual page altmngr(8) for more information.\n"));
     exit(rc);
 }
 
